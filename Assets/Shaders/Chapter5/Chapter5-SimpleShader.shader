@@ -2,7 +2,7 @@
 
 // Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Unlit/Chapter5-SimpleShader"
+Shader "Unity Shaders Book/Chapter5-SimpleShader"
 {
     Properties{
         _Color("Color Tint",Color)=(1.0,1.0,1.0,1.0)
@@ -38,7 +38,6 @@ Shader "Unlit/Chapter5-SimpleShader"
             fixed4 frag(v2f i):SV_Target{
                 return fixed4(i.color,1.0);
             }
-
             ENDCG
         }
     }
