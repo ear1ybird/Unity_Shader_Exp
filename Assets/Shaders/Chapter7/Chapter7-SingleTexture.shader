@@ -49,12 +49,12 @@ Shader "Unity Shaders Book/Chapter7-SingleTexture"
             }
 
             fixed4 frag(v2f i):SV_TARGET{
-                fixed3 ambient=UNITY_LIGHTMODEL_AMBIENT.xyz;
 				fixed3 worldNormal=normalize(i.worldNormal);
 				fixed3 worldLightDir=normalize(UnityWorldSpaceLightDir(i.worldPos));
 
                 fixed3 albedo=tex2D(_MainTex,i.uv).rgb*_Color.rgb;
-
+                
+                fixed3 ambient=UNITY_LIGHTMODEL_AMBIENT.xyz*albedo;
                 fixed3 diffuse=_LightColor0.rgb*albedo*max(0,dot(worldNormal,worldLightDir));
 				fixed3 viewDir=normalize(UnityWorldSpaceViewDir(i.worldPos));
                 fixed3 halfDir=normalize(worldLightDir+viewDir);
