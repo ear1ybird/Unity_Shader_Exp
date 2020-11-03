@@ -14,8 +14,12 @@ Shader "Unity Shaders Book/Chapter7-NormalMapWorldSpace"
     SubShader
     {
 
-        pass{
-            Tags{"LightMode"="ForwardBase"}
+        pass
+        {
+            Tags
+            {
+                "LightMode"="ForwardBase"
+            }
 
             CGPROGRAM
 

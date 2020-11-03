@@ -1,15 +1,22 @@
 ﻿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
-Shader "Unity Shaders Book/Chapter6-HalfLambert"{
-	Properties{
-		_Diffuse("Diffuse",color)=(1,1,1,1)
-	}
+Shader "Unity Shaders Book/Chapter6-HalfLambert"
+{
+    Properties
+    {
+        _Diffuse("Diffuse",color)=(1,1,1,1)
+    }
 
-	SubShader{
-		Pass{
-			Tags{"LightMode"="ForwardBase"}
+    SubShader
+    {
+        Pass
+        {
+            Tags
+            {
+                "LightMode"="ForwardBase"
+            }
 
-			CGPROGRAM
+            CGPROGRAM
 
 			#pragma vertex vert
 			#pragma fragment frag
@@ -47,6 +54,6 @@ Shader "Unity Shaders Book/Chapter6-HalfLambert"{
 			}
 
 			ENDCG
-		}
-	}
+        }
+    }
 }

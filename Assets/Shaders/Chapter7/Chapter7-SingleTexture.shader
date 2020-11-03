@@ -2,16 +2,22 @@
 
 Shader "Unity Shaders Book/Chapter7-SingleTexture"
 {
-    Properties{
+    Properties
+    {
         _Color("Color",color)=(1,1,1,1)
         _MainTex("Main Tex",2D)="white" {}
         _Specular("Specular",color)=(1,1,1,1)
         _Gloss("Gloss",Range(8.0,256))=20
     }
 
-    SubShader{
-        pass{
-            tags{"LightMode"="ForwardBase"}
+    SubShader
+    {
+        pass
+        {
+            tags
+            {
+                "LightMode"="ForwardBase"
+            }
 
             CGPROGRAM
 

@@ -12,8 +12,12 @@
     SubShader
     {
 
-        pass{
-            Tags{"LightMode"="ForwardBase"}
+        pass
+        {
+            Tags
+            {
+                "LightMode"="ForwardBase"
+            }
 
             CGPROGRAM
 

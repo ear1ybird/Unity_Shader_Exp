@@ -4,12 +4,15 @@
 
 Shader "Unity Shaders Book/Chapter5-SimpleShader"
 {
-    Properties{
+    Properties
+    {
         _Color("Color Tint",Color)=(1.0,1.0,1.0,1.0)
     }
 
-    SubShader{
-        pass{
+    SubShader
+    {
+        pass
+        {
             CGPROGRAM
 
             #pragma vertex vert

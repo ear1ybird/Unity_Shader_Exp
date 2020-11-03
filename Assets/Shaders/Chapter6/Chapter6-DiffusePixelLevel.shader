@@ -5,15 +5,21 @@
 
 Shader "Unity Shaders Book/Chapter6-DiffusePixelLevel"
 {
-	Properties{
-		_Diffuse("Diffuse",Color)=(1,1,1,1)
-	}
+    Properties
+    {
+        _Diffuse("Diffuse",Color)=(1,1,1,1)
+    }
 
-	SubShader{
-		Pass{
-			Tags{"LightMode"="ForwardBase"}
+    SubShader
+    {
+        Pass
+        {
+            Tags
+            {
+                "LightMode"="ForwardBase"
+            }
 
-			CGPROGRAM
+            CGPROGRAM
 
 		#pragma vertex vert
 		#pragma fragment frag
@@ -49,7 +55,7 @@ Shader "Unity Shaders Book/Chapter6-DiffusePixelLevel"
 		}
 
 		ENDCG
-		}
-	}
-	FallBack "Diffuse" 
+        }
+    }
+    FallBack "Diffuse"
 }

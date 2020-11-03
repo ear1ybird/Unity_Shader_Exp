@@ -5,18 +5,25 @@
 
 // Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
-Shader "Unity Shaders Book/Chapter6-SpecularPixelLevel"{
-	Properties{
-			_Diffuse("Diffuse",Color)=(1,1,1,1)
-			_Specular("Specular",Color)=(1,1,1,1)
-			_Gloss("Gloss",Range(8.0,256))=20
-	}
+Shader "Unity Shaders Book/Chapter6-SpecularPixelLevel"
+{
+    Properties
+    {
+        _Diffuse("Diffuse",Color)=(1,1,1,1)
+        _Specular("Specular",Color)=(1,1,1,1)
+        _Gloss("Gloss",Range(8.0,256))=20
+    }
 
-	SubShader{
-		pass{
-			Tags{"LightMode"="ForwardBase"}
+    SubShader
+    {
+        pass
+        {
+            Tags
+            {
+                "LightMode"="ForwardBase"
+            }
 
-			CGPROGRAM
+            CGPROGRAM
 
 			#pragma vertex vert
 			#pragma fragment frag
@@ -60,6 +67,6 @@ Shader "Unity Shaders Book/Chapter6-SpecularPixelLevel"{
 			}
 
 			ENDCG
-		}
-	}
+        }
+    }
 }
