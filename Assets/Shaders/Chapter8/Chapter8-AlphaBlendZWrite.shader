@@ -1,4 +1,4 @@
-﻿Shader "Unity Shaders Book/Chapter8-AlphaBlend"
+﻿Shader "Unity Shaders Book/Chapter8-AlphaBlendZWrite"
 {
     Properties{
         _Color("Main Tint",Color)=(1,1,1,1)
@@ -9,6 +9,15 @@
     SubShader{
         Tags{"Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent"}
 
+        //第一个Pass开启深度写入但不输出颜色
+        pass{
+            ZWrite On
+
+            //设置颜色通道得到写掩码，0意味着该Pass不写入颜色通道。一般语义：ColorMask RGB
+            ColorMask 0
+        }
+
+        //第二个Pass进行正常的透明度混合
         pass{
             Tags { "LightMode"="ForwardBase" }
 
@@ -16,7 +25,6 @@
             ZWrite off
 
             //将源颜色的混合因子设为SrcAlpha，将目标颜色混合因子设为OneMinusSecAlpha
-            //代表用源颜色的a分量作为源颜色混合因子，(1-目标颜色的a分量)作为目标颜色混合因子
             Blend SrcAlpha oneMinusSrcAlpha
 
 
