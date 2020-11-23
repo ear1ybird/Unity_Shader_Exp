@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AlphaBlendZWriteMat
-  m_Shader: {fileID: 4800000, guid: e1d16a1d23a24634c91ca6999156e1a1, type: 3}
+  m_Name: ForwardRenderingMat
+  m_Shader: {fileID: 4800000, guid: ec77565399a437d4f96780904eb1f7b8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -56,7 +56,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaScale: 0.27
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1

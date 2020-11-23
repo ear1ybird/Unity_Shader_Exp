@@ -53,7 +53,6 @@
 				fixed3 worldNormal=normalize(i.worldNormal);
 				fixed3 worldLightDir=normalize(_WorldSpaceLightPos0.xyz);
 				fixed3 diffuse=_LightColor0.rgb*_Diffuse.rgb*saturate(dot(worldNormal,worldLightDir));
-				fixed3 reflectDir=normalize(reflect(-worldLightDir,worldNormal));
 				fixed3 viewDir=normalize(_WorldSpaceCameraPos.xyz-i.worldPos.xyz);
 				
 				//不使用反射方向
