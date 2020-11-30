@@ -17,7 +17,7 @@ Shader "Unity Shaders Book/Chapter6-DiffuseVertexLevel"
                 "LightMode"="ForwardBase"
             }
 
-            CGPROGRAM
+        CGPROGRAM
 
 		#pragma vertex vert
 		#pragma fragment frag

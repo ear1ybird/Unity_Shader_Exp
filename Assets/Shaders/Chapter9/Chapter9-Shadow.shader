@@ -1,4 +1,4 @@
-﻿Shader "Unity Shaders Book/Chapter9-ForwardRendering"
+﻿Shader "Unity Shaders Book/Chapter9-Shadow"
 {
     Properties {
 		_Diffuse ("Diffuse", Color) = (1, 1, 1, 1)
@@ -22,20 +22,23 @@
 		    #pragma fragment frag
 		
 		    #include "Lighting.cginc"
-		
+            #include "AutoLight.cginc"
+
 		    fixed4 _Diffuse;
 		    fixed4 _Specular;
 		    float _Gloss;
 
             struct a2v{
                 float4 vertex:POSITION;
-                float3 normal:NORMAL;
+                float3 normal:NORMAL; 
             };
 
             struct v2f{
                 float4 pos:SV_POSITION;
                 float3 worldNormal:TEXCOORD0;
                 float3 worldPos:TEXCOORD1;
+                //声明用于对阴影纹理采样的坐标
+                SHADOW_COORDS(2)
             };
 
             v2f vert(a2v v){
@@ -43,6 +46,8 @@
                 o.pos=UnityObjectToClipPos(v.vertex);
                 o.worldNormal=UnityObjectToWorldNormal(v.normal);
                 o.worldPos=mul(unity_ObjectToWorld,v.vertex);
+                //计算上一步声明的阴影纹理坐标
+                TRANSFER_SHADOW(o);
                 return o;
             }
 
@@ -50,14 +55,19 @@
                 fixed3 worldNormal=normalize(i.worldNormal);
                 fixed3 worldLightDir=normalize(_WorldSpaceLightPos0.xyz);
                 fixed3 ambient=UNITY_LIGHTMODEL_AMBIENT.xyz;
-                fixed3 diffuse=_LightColor0.rgb*_Diffuse.rgb*max(0,dot(worldNormal,worldLightDir));
 
+                
+                fixed shadow=SHADOW_ATTENUATION(i);
+
+                fixed3 diffuse=_LightColor0.rgb*_Diffuse.rgb*max(0,dot(worldNormal,worldLightDir))*shadow;
                 fixed3 viewDir=normalize(_WorldSpaceCameraPos.xyz-i.worldPos.xyz);
                 fixed3 halfDir=normalize(worldLightDir+viewDir);
-                fixed3 specular=_LightColor0.rgb*_Specular.rgb*pow(max(0,dot(worldNormal,halfDir)),_Gloss);
+                fixed3 specular=_LightColor0.rgb*_Specular.rgb*pow(max(0,dot(worldNormal,halfDir)),_Gloss)*shadow;
                 
                 //平行光衰减值为1
                 fixed atten=1.0;
+                
+                //计算阴影值
                 return fixed4(ambient+diffuse+specular*atten,1.0);
             }
             ENDCG
