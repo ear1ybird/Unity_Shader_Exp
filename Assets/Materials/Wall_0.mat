@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BumpedDiffuseMat
+  m_Name: Wall_0
   m_Shader: {fileID: 4800000, guid: 5d3993f34601ad84c82f33b4ceb785a5, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: d11ee6af1b6775f4fa872b743b3ec490, type: 3}
+        m_Texture: {fileID: 2800000, guid: db775ba8f440c524a85da1c82da02ea1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 199827d34047c8141805370569ac5a3d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 66f89e616d61cf14399d530ef1bd438b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
