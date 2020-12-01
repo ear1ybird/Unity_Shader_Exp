@@ -64,7 +64,7 @@ Shader "Unity Shaders Book/Chapter7-NormalMapWorldSpace"
                 float3 worldTangent=UnityObjectToWorldDir(v.tangent.xyz);
                 float3 worldBinormal=cross(worldNormal,worldTangent)*v.tangent.w;       //v.tangent.w值为-1或者1,由DCC软件中的切线自动生成,和顶点的环绕顺序有关。
                                                                                         //法线纹理中只有两个分量是真正必不可少的，因此可以被压缩
-                //为了充分利用存储空间，把世界坐标下的顶点存在w分量中
+                //为了充分利用存储空间，把世界坐标下的顶点存在w分量中。子空间->父空间变换
                 o.TtoW0=float4(worldTangent.x,worldBinormal.x,worldNormal.x,worldPos.x);
                 o.TtoW1=float4(worldTangent.y,worldBinormal.y,worldNormal.y,worldPos.y);
                 o.TtoW2=float4(worldTangent.z,worldBinormal.z,worldNormal.z,worldPos.z);
