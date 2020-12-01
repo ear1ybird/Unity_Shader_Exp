@@ -52,8 +52,8 @@
             fixed4 frag(v2f i):SV_TARGET{
                 float time=floor(_Time.y*_Speed);
                 float row=floor(time/_HorizontalAmount);
-                float column=time-row*_HorizontalAmount;
-
+                float column=time-row*_HorizontalAmount;    //除法结果的余数是列索引
+				
                 half2 uv=i.uv+half2(column,-row);
                 uv.x/=_HorizontalAmount;
                 uv.y/=_VerticalAmount;

@@ -50,6 +50,8 @@
 				
 				float4 offset;
 				offset.yzw = float3(0.0, 0.0, 0.0);
+                //这里是模型空间的x轴，视具体模型而定
+                //在不同位置有不同位移，加上模型空间下的位置分量
 				offset.x = sin(_Frequency * _Time.y + v.vertex.x * _InvWaveLength + v.vertex.y * _InvWaveLength + v.vertex.z * _InvWaveLength) * _Magnitude;
 				o.pos = UnityObjectToClipPos(v.vertex + offset);
 				
