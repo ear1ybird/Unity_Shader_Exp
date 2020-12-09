@@ -36,7 +36,7 @@
 				
 				half2 uv = v.texcoord;
 				
-				o.uv[0] = uv + _MainTex_TexelSize.xy * half2(-1, -1);
+				o.uv[0] = uv + _MainTex_TexelSize.xy * half2(-1, -1);		//在自身UV坐标的基础上偏移得到卷积核UV坐标
 				o.uv[1] = uv + _MainTex_TexelSize.xy * half2(0, -1);
 				o.uv[2] = uv + _MainTex_TexelSize.xy * half2(1, -1);
 				o.uv[3] = uv + _MainTex_TexelSize.xy * half2(-1, 0);
